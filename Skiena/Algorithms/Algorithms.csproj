@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <nullable>enable</nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ch01\" />
+    <Folder Include="ch03\" />
+    <Folder Include="ch03\containers\" />
+    <Folder Include="ch03\elementary-ds\" />
+    <Folder Include="ch03\trees\" />
+  </ItemGroup>
+</Project>
