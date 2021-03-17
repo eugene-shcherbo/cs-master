@@ -5,13 +5,13 @@ using Xunit;
 
 namespace UnitTests.ch03.trees
 {
-    public abstract class BSTToLinkedListMergerTests
+    public abstract class BstToLinkedListMergerTests
     {
         [Theory]
         [MemberData(nameof(TestData))]
         public void ElementsInSortedOrder(BinaryTreeNode<int>? bst1, BinaryTreeNode<int>? bst2, IList<int> expectedSequence)
         {
-            IBSTToLinkedListMerger merger = CreateMerger();
+            IBstToLinkedListMerger merger = CreateMerger();
             LinkedList<int> result = merger.MergeTrees(bst1, bst2, new IntComparer());
 
             LinkedListNode<int>? currNode = result.First;
@@ -36,16 +36,16 @@ namespace UnitTests.ch03.trees
                 {
                     CreateTree(10, CreateTree(5, CreateTree(3), CreateTree(7)), CreateTree(15)),
                     CreateTree(20, CreateTree(10, CreateTree(5, null, CreateTree(7)), CreateTree(14)), CreateTree(22)),
-                    new[] { 3, 5, 5, 7, 7, 10, 10, 14, 20, 22 }
+                    new[] { 3, 5, 5, 7, 7, 10, 10, 14, 15, 20, 22 }
                 }
             };
+
+        protected abstract IBstToLinkedListMerger CreateMerger();
 
         private static BinaryTreeNode<int> CreateTree(int value, BinaryTreeNode<int>? left = null, BinaryTreeNode<int>? right = null)
         {
             return new BinaryTreeNode<int>(value, left, right);
         }
-
-        protected abstract IBSTToLinkedListMerger CreateMerger();
 
         private class IntComparer : IComparer<int>
         {
