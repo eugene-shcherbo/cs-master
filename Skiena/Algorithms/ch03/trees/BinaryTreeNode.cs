@@ -2,19 +2,19 @@
 
 namespace Algorithms.ch03.trees
 {
-    public class BinaryTreeNode<T>
+    public class BinaryTreeNode<TData>
     {
-        public T Data { get; }
+        public TData Data { get; }
 
-        public BinaryTreeNode<T>? Right { get; }
+        public BinaryTreeNode<TData>? Right { get; }
 
-        public BinaryTreeNode<T>? Left { get; }
+        public BinaryTreeNode<TData>? Left { get; }
 
-        public BinaryTreeNode(T data, BinaryTreeNode<T>? left, BinaryTreeNode<T>? right)
+        public BinaryTreeNode(TData data, BinaryTreeNode<TData>? left = null, BinaryTreeNode<TData>? right = null)
         {
             Data = data;
-            Right = right;
             Left = left;
+            Right = right;
         }
     }
 }

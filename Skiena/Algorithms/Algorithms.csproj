@@ -11,5 +11,9 @@
     <Folder Include="ch03\containers\" />
     <Folder Include="ch03\elementary-ds\" />
     <Folder Include="ch03\trees\" />
+    <Folder Include="common\" />
+    <Folder Include="common\extenstions\" />
+    <Folder Include="common\abs\" />
+    <Folder Include="common\ds\" />
   </ItemGroup>
 </Project>

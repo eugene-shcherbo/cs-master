@@ -12,7 +12,7 @@ namespace Algorithms.ch03.trees
                 return null;
             }
 
-            IList<T> sortedElements = new List<T>();
+            var sortedElements = new List<T>();
             YieldElementsFromInOrderTraversal(bst, sortedElements);
 
             return CreateBalancedBstFrom(sortedElements, 0, sortedElements.Count - 1);
