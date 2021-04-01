@@ -15,5 +15,8 @@
     <Folder Include="common\extenstions\" />
     <Folder Include="common\abs\" />
     <Folder Include="common\ds\" />
+    <Folder Include="ch03\interview\" />
+    <Folder Include="ch04\" />
+    <Folder Include="ch04\numbers\" />
   </ItemGroup>
 </Project>

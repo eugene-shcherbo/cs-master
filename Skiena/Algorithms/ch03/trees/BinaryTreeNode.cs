@@ -17,4 +17,12 @@ namespace Algorithms.ch03.trees
             Right = right;
         }
     }
+
+    public static class BinaryTreeNode
+    {
+        public static BinaryTreeNode<TData> Create<TData>(TData data, BinaryTreeNode<TData>? left = null, BinaryTreeNode<TData>? right = null)
+        {
+            return new BinaryTreeNode<TData>(data, left, right);
+        }
+    }
 }
