@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Algorithms.ch03.containers;
+using System;
 using System.Collections.Generic;
-using Algorithms.ch03.containers;
 
 namespace UnitTests.ch03.containers
 {

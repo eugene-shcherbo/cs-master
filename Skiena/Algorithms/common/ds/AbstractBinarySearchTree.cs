@@ -1,5 +1,5 @@
-﻿using System;
-using Algorithms.common.extenstions;
+﻿using Algorithms.common.extenstions;
+using System;
 
 namespace Algorithms.common.ds
 {

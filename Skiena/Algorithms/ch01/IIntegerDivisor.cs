@@ -1,5 +1,4 @@
-﻿using System;
-namespace Algorithms.ch01
+﻿namespace Algorithms.ch01
 {
     public interface IIntegerDivisor
     {

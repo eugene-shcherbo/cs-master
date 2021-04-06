@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Algorithms.ch03.containers
+﻿namespace Algorithms.ch03.containers
 {
     public class ReverseLinkedListAlgorithm
     {

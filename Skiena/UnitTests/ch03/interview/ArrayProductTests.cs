@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Algorithms.ch03.interview;
 using System.Collections.Generic;
-using Algorithms.ch03.interview;
 using Xunit;
 
 namespace UnitTests.ch03.interview

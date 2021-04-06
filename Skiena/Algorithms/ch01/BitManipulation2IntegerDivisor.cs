@@ -1,5 +1,5 @@
 ﻿using System;
-    
+
 namespace Algorithms.ch01
 {
     public class BitManipulation2IntegerDivisor : IIntegerDivisor

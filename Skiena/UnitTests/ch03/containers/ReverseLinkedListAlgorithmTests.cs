@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using Algorithms.ch03;
+using Algorithms.ch03.containers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Algorithms.ch03;
-using Algorithms.ch03.containers;
 using Xunit;
 
 namespace UnitTests.ch03.containers

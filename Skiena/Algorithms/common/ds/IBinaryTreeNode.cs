@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Algorithms.common.ds
+﻿namespace Algorithms.common.ds
 {
     public interface IBinaryTreeNode<TNode, TData> where TNode : IBinaryTreeNode<TNode, TData>
     {

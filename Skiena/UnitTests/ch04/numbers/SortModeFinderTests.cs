@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch04.numbers;
+﻿using Algorithms.ch04.numbers;
 
 namespace UnitTests.ch04.numbers
 {

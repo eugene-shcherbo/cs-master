@@ -1,5 +1,5 @@
-﻿using System;
-using Algorithms.ch01;
+﻿using Algorithms.ch01;
+using System;
 using Xunit;
 
 namespace UnitTests.ch01
@@ -27,7 +27,7 @@ namespace UnitTests.ch01
         {
             TestDivision(dividend, divisor, 0);
         }
-        
+
         [Theory]
         [InlineData(1, 1)]
         [InlineData(5, 5)]

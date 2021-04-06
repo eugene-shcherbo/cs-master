@@ -1,5 +1,4 @@
-﻿using System;
-namespace Algorithms.ch03.interview
+﻿namespace Algorithms.ch03.interview
 {
     public interface IMiddleSearcher
     {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Algorithms.ch03.elementaryds;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Algorithms.ch03.elementaryds;
 using Xunit;
 
 namespace UnitTests.ch03.elementaryds

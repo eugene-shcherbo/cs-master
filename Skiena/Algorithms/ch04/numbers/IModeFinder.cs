@@ -1,5 +1,4 @@
-﻿using System;
-namespace Algorithms.ch04.numbers
+﻿namespace Algorithms.ch04.numbers
 {
     public interface IModeFinder
     {

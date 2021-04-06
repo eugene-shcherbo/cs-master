@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Algorithms.ch03.containers;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using Algorithms.ch03.containers;
 using Xunit;
 
 namespace UnitTests.common

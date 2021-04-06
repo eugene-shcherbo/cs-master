@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch01;
+﻿using Algorithms.ch01;
 
 namespace UnitTests.ch01
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch03.trees;
+﻿using Algorithms.ch03.trees;
 
 namespace UnitTests.ch03.trees
 {

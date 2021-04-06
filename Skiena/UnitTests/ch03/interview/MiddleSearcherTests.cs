@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch03;
+﻿using Algorithms.ch03;
 using Algorithms.ch03.interview;
 using Xunit;
 

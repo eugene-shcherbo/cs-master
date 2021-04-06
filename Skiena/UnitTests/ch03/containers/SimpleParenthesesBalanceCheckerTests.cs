@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch03.containers;
+﻿using Algorithms.ch03.containers;
 
 namespace UnitTests.ch03.containers
 {

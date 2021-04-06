@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Algorithms.ch04.numbers;
 using System.Collections.Generic;
-using Algorithms.ch04.numbers;
 using Xunit;
 
 namespace UnitTests.ch04.numbers

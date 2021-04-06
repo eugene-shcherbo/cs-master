@@ -1,5 +1,4 @@
-﻿using System;
-namespace Algorithms.ch03.trees
+﻿namespace Algorithms.ch03.trees
 {
     public interface IBstBalancer
     {

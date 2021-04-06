@@ -1,5 +1,5 @@
-﻿using System;
-using Algorithms.ch03.trees;
+﻿using Algorithms.ch03.trees;
+using System;
 
 namespace Algorithms.ch03.interview
 {

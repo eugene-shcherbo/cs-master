@@ -1,36 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Algorithms.common.extenstions
 {
     public static class IComparableExtensions
     {
         public static bool LessThan<T>(this T first, T second) where T : IComparable<T>
-        {
-            if (first is null)
+            => first switch
             {
-                return second is null;
-            }
-
-            return first.CompareTo(second) < 0;
-        }
+                null => second is not null,
+                _ => first.CompareTo(second) < 0
+            };
 
         public static bool SameAs<T>(this T first, T second) where T : IComparable<T>
-        {
-            if (first is null)
+            => first switch
             {
-                return second is null;
-            }
-
-            return first.CompareTo(second) == 0;
-        }
+                null => second is null,
+                _ => first.CompareTo(second) == 0
+            };
 
         public static bool GreaterThan<T>(this T first, T second) where T : IComparable<T>
-        {
-            if (first is null)
+            => first switch
             {
-                return second is null;
-            }
+                null => false,
+                _ => first.CompareTo(second) > 0
+            };
 
-            return first.CompareTo(second) > 0;
-        }
+        public static bool LessThan<T>(this T first, T second, IComparer<T> comparer)
+            => comparer.Compare(first, second) < 0;
+
+        public static bool GreaterThan<T>(this T first, T second, IComparer<T> comparer)
+            => comparer.Compare(first, second) > 0;
+
+        public static bool SameAs<T>(this T first, T second, IComparer<T> comparer)
+            => comparer.Compare(first, second) == 0;
     }
 }

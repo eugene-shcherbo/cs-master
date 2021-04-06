@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch03.elementaryds;
+﻿using Algorithms.ch03.elementaryds;
 
 namespace UnitTests.ch03.elementaryds
 {

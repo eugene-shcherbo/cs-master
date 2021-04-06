@@ -1,5 +1,4 @@
-﻿using System;
-namespace Algorithms.ch03.containers
+﻿namespace Algorithms.ch03.containers
 {
     public interface ILongestBalancedParentheses
     {

@@ -1,5 +1,4 @@
-﻿using System;
-using Algorithms.ch03.interview;
+﻿using Algorithms.ch03.interview;
 
 namespace UnitTests.ch03.interview
 {
