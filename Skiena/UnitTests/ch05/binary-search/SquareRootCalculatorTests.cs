@@ -31,7 +31,7 @@ namespace UnitTests.ch05.binary_search
 
             for (int i = 0; i < result.Length; i++)
             {
-                int precision = random.Next(0, 10);
+                int precision = random.Next(0, 5);
                 int num = random.Next();
 
                 result[i] = new object[] { num, precision };

@@ -12,7 +12,7 @@ namespace UnitTests.ch05.binary_search
     {
         [Theory]
         [MemberData(nameof(TestDataProvider))]
-        public void TesSearchForLargest(int[] values, int largest)
+        public void TestSearchForLargest(int[] values, int largest)
         {
             ILargestFinder finder = GetFinder();
             Assert.Equal(largest, finder.FindLargest(values));
@@ -25,7 +25,7 @@ namespace UnitTests.ch05.binary_search
 
             for (int i = 0; i < 100; i++)
             {
-                var array = new object[rand.Next(100)];
+                var array = new object[rand.Next(1, 100)];
                 int max = int.MinValue;
 
                 for (int j = 0; j < array.Length; j++)
@@ -41,7 +41,7 @@ namespace UnitTests.ch05.binary_search
                 }
 
                 Array.Sort(array);
-                object[] rotated = RotateArray(array, rand.Next() % array.Length);
+                object[] rotated = RotateArray(array, array.Length > 0 ? rand.Next() % array.Length : 0);
 
                 result[i] = new object[] { rotated, max };
             }

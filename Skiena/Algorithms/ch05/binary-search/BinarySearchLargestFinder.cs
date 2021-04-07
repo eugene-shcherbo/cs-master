@@ -15,7 +15,7 @@ namespace Algorithms.ch05.binary_search
 
             if (values.Length == 1)
             {
-                return values[0].GreaterThan(values[1], comparer) ? values[0] : values[1];
+                return values[0];
             }
 
             int start = 0;

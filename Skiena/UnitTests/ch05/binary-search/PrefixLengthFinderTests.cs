@@ -26,7 +26,7 @@ namespace UnitTests.ch05.binary_search
             for (int i = 0; i < result.Length; i++)
             {
                 var array = new object[randGen.Next(0, 2000)];
-                var prefixLength = randGen.Next(0, array.Length - 1);
+                var prefixLength = randGen.Next(1, array.Length - 1);
 
                 for (int j = 0; j < array.Length; j++)
                 {
