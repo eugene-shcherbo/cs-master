@@ -41,6 +41,18 @@ namespace UnitTests.ch05.integer_multiplication
             Assert.Equal(val * Math.Pow(10, power), decimalValue.PadWithZeros(power).ToInt32());
         }
 
+        [Fact]
+        public void TestGettingPartOfNumber()
+        {
+            var decimalValue = DecimalInteger.FromInt32(13456789);
+
+            Assert.Equal(89, decimalValue.FromDigits(0, 2).ToInt32());
+            Assert.Equal(1345, decimalValue.FromDigits(4, 100).ToInt32());
+            Assert.Equal(0, decimalValue.FromDigits(100, 100).ToInt32());
+            Assert.Equal(456, decimalValue.FromDigits(3, 3).ToInt32());
+            Assert.Equal(6, decimalValue.FromDigits(3, 1).ToInt32());
+        }
+
         public static IEnumerable<object[]> IntegerProvider()
         {
             return CollectTestData(rand => new object[] { rand.Next() });

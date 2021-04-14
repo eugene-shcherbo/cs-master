@@ -30,6 +30,8 @@ namespace Algorithms.ch04.intervals
             return new Interval(Math.Min(Start, interval.Start), Math.Max(End, interval.End));
         }
 
+        public int Length => End - Start;
+
         private static void EnsureValid(int start, int end)
         {
             if (start > end)

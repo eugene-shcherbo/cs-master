@@ -34,9 +34,13 @@ namespace Algorithms.ch05.binary_search
                 {
                     end = mid - 1;
                 }
-                else
+                else if (values[mid].GreaterThan(values[start], comparer))
                 {
                     start = mid + 1;
+                }
+                else
+                {
+                    start++;
                 }
             }
 

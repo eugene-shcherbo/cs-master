@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Algorithms.ch05.integer_multiplication
@@ -6,6 +7,8 @@ namespace Algorithms.ch05.integer_multiplication
     public class DecimalInteger
     {
         private readonly LinkedList<short> digits = new LinkedList<short>();
+
+        public int NumOfDigits => digits.Count;
 
         public DecimalInteger()
         {
@@ -15,6 +18,11 @@ namespace Algorithms.ch05.integer_multiplication
         private DecimalInteger(LinkedList<short> digits)
         {
             this.digits = digits;
+
+            if (!this.digits.Any())
+            {
+                digits.AddFirst(0);
+            }
         }
 
         public DecimalInteger Sum(DecimalInteger other)
@@ -43,6 +51,63 @@ namespace Algorithms.ch05.integer_multiplication
             }
 
             return new DecimalInteger(res);
+        }
+
+        public DecimalInteger FromDigits(int startDigit, int count)
+        {
+            if (startDigit < 0)
+            {
+                throw new ArgumentException("Start digit must be positive number");
+            }
+
+            if (count <= 0)
+            {
+                throw new ArgumentException("Count must be positive number greater than 0");
+            }
+
+            if (startDigit >= digits.Count)
+            {
+                return FromInt32(0);
+            }
+
+            //if (endDigit.HasValue && startDigit > endDigit)
+            //{
+            //    throw new InvalidOperationException("Start digit must be before end digit");
+            //}
+
+            //if (startDigit >= digits.Count && (!endDigit.HasValue || endDigit >= digits.Count))
+            //{
+            //    return FromInt32(0);
+            //}
+
+            int endDigit = Math.Min(startDigit + count - 1, digits.Count - 1);
+
+            LinkedList<short> newDigits = new LinkedList<short>();
+            LinkedListNode<short>? digitNode = digits.Last;
+
+            for (int i = 0; i < startDigit; i++)
+            {
+                digitNode = digitNode!.Previous;
+            }
+
+            while (startDigit <= endDigit)
+            {
+                newDigits.AddFirst(digitNode!.Value);
+                digitNode = digitNode.Previous;
+                startDigit++;
+            }
+
+            return new DecimalInteger(newDigits);
+        }
+
+        public DecimalInteger FromDigits(int startDigit)
+        {
+            return FromDigits(startDigit, digits.Count);
+        }
+
+        public override string ToString()
+        {
+            return ToInt32().ToString();
         }
 
         private static short GetDigitValue(LinkedListNode<short>? digitNode)
