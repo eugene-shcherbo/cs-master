@@ -23,7 +23,6 @@
     <Folder Include="ch01\" />
     <Folder Include="ch03\" />
     <Folder Include="ch03\containers\" />
-    <Folder Include="common\" />
     <Folder Include="ch03\elementary-ds\" />
     <Folder Include="ch03\trees\" />
     <Folder Include="ch03\interview\" />
