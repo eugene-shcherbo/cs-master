@@ -23,7 +23,7 @@ namespace Algorithms.common.extenstions
             => first switch
             {
                 null => false,
-                _ => first.CompareTo(second) > 0
+                _ => first.CompareTo(second) >= 0
             };
 
         public static bool LessThan<T>(this T first, T second, IComparer<T> comparer)
@@ -34,5 +34,8 @@ namespace Algorithms.common.extenstions
 
         public static bool SameAs<T>(this T first, T second, IComparer<T> comparer)
             => comparer.Compare(first, second) == 0;
+
+        public static bool SameAs<T>(this T first, T second, IEqualityComparer<T> comparer)
+            => comparer.Equals(first, second);
     }
 }
