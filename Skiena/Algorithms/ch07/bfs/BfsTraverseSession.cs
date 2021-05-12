@@ -6,77 +6,90 @@ using System.Threading.Tasks;
 
 namespace Algorithms.ch07.bfs
 {
+    public delegate void TraverseAction<TVertex>(TVertex vertex, BfsTraverseSession<TVertex> currentSession) where TVertex : notnull;
+
     public class BfsTraverseSession<TVertex> where TVertex : notnull
     {
+        static readonly TraverseAction<TVertex> defaultAction = (vertex, currentSession) => { };
+
+        readonly BfsProcessor processor = new();
         readonly BfsGraphTraverser<TVertex> traverser = new();
         readonly HashSet<TVertex> discovered = new();
         readonly IGraph<TVertex> graph;
-
-        Action<TVertex> beforeTraverse = vertex => { };
-        Action<TVertex> afterTraverse = vertex => { };
+        readonly Dictionary<TVertex, TVertex> parents = new();
+        readonly HashSet<TVertex> roots = new();
+        
+        TraverseAction<TVertex> beforeTraverse = defaultAction;
+        TraverseAction<TVertex> afterTraverse = defaultAction;
+        TraverseAction<TVertex> beforeExploration = defaultAction;
+        TraverseAction<TVertex> afterExploration = defaultAction;
 
         internal BfsTraverseSession(IGraph<TVertex> graph)
         {
             this.graph = graph;
+            processor.session = this;
         }
 
-        public BfsTraverseSession<TVertex> BeforeTraversingComponent(Action<TVertex>? action)
+        public BfsTraverseSession<TVertex> BeforeTraversingComponent(TraverseAction<TVertex>? action)
         {
             beforeTraverse = action ?? beforeTraverse;
             return this;
         }
 
-        public BfsTraverseSession<TVertex> AfterTraversingComponent(Action<TVertex>? action)
+        public BfsTraverseSession<TVertex> AfterTraversingComponent(TraverseAction<TVertex>? action)
         {
             afterTraverse = action ?? afterTraverse;
             return this;
         }
 
-        //public BfsTraverseSession<TVertex> BeforeExploringVertex(Action<TVertex>? action)
-        //{
-        //    return this;
-        //}
+        public BfsTraverseSession<TVertex> BeforeExploration(TraverseAction<TVertex>? action)
+        {
+            beforeExploration = action ?? beforeExploration;
+            return this;
+        }
 
-        //public BfsTraverseSession<TVertex> WhenExploringEdge(Action<Edge<TVertex>> action)
-        //{
-        //    return this;
-        //}
+        public BfsTraverseSession<TVertex> WhenExploringEdge(Action<Edge<TVertex>> action)
+        {
+            return this;
+        }
 
-        //public BfsTraverseSession<TVertex> AfterExploringVertex(Action<TVertex> action)
-        //{
-        //    return this;
-        //}
+        public BfsTraverseSession<TVertex> AfterExploration(TraverseAction<TVertex>? action)
+        {
+            afterExploration = action ?? afterExploration;
+            return this;
+        }
 
-        public BfsTraverseSession<TVertex> TraverseComponents()
+        public void Run()
         {
             foreach (TVertex vertex in graph.Vertices)
             {
                 if (!Discovered(vertex))
                 {
-                    beforeTraverse(vertex);
-                    traverser.TraverseFrom(graph, vertex);
-                    afterTraverse(vertex);
+                    roots.Add(vertex);
+                    beforeTraverse(vertex, this);
+                    traverser.TraverseWeakComponent(graph, vertex, processor, discovered);
+                    afterTraverse(vertex, this);
                 }
             }
-
-            return this;
         }
 
         public bool Discovered(TVertex vertex) => discovered.Contains(vertex);
 
+        public bool IsRootOfTraversing(TVertex vertex) => roots.Contains(vertex);
+
         private class BfsProcessor : IGraphTraverseProcessor<TVertex>
         {
-            // readonly TraverseTree<TVertex> tree;
-            readonly Dictionary<TVertex, int> entryTime = new();
-            readonly Dictionary<TVertex, int> finishTime = new();
-            int time = -1;
+            public BfsTraverseSession<TVertex>? session;
 
-            public void AfterExploration(TVertex? parent, TVertex vertex)
+            public void AfterExploration(TVertex parent, TVertex vertex)
             {
+                session!.afterExploration(vertex, session);
             }
 
-            public void BeforeExploration(TVertex? parent, TVertex vertex)
+            public void BeforeExploration(TVertex parent, TVertex vertex)
             {
+                session!.parents[vertex] = parent;
+                session!.beforeExploration(vertex, session);
             }
 
             public void ProcessEdge(Edge<TVertex> edge)

@@ -18,7 +18,7 @@ namespace UnitTests.ch07.bfs
             var bfsTraverser = new BfsGraphTraverser<int>();
             var graph = GetGraph();
 
-            var traverseTree = bfsTraverser.TraverseFrom(graph, 1);
+            var traverseTree = bfsTraverser.TraverseWeakComponent(graph, 1);
 
             Assert.Equal(5, traverseTree.GetParent(6));
             Assert.Equal(3, traverseTree.GetParent(4));

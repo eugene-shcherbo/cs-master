@@ -10,9 +10,9 @@ namespace Algorithms.ch07
     {
         // void BeforeTraversingWeakComponent(TVertex vertex);
 
-        void BeforeExploration(TVertex? parent, TVertex vertex);
+        void BeforeExploration(TVertex parent, TVertex vertex);
 
-        void AfterExploration(TVertex? parent, TVertex vertex);
+        void AfterExploration(TVertex parent, TVertex vertex);
 
         void ProcessEdge(Edge<TVertex> edge);
     }
